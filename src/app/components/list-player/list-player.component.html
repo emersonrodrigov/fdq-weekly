@@ -1,0 +1,47 @@
+<table class="table table-striped">
+    <thead>
+     <tr>
+       <th scope="col">#</th>
+       <th scope="col">Nome/Apelido</th>
+       <th scope="col">Posição (1ª Opção)</th>
+       <th scope="col">Posição (2ª Opção)</th>
+       <th scope="col">Churras ?</th>
+        
+       <th scope="col">Edit</th>
+       <th scope="col">Delete</th>
+     </tr>
+    </thead>
+    <tbody *ngIf="books">
+      <tr *ngFor="let book of books; index as i">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ book.name }}</td>
+        <td>
+                {{ book.author == '1' ? 'Goleiro' : '' }}
+                {{ book.author == '2' ? 'Zagueiro' : '' }}
+                {{ book.author == '3' ? 'Lateral' : '' }}
+                {{ book.author == '4' ? 'Volante' : '' }}
+                {{ book.author == '5' ? 'Meia' : '' }}
+                {{ book.author == '6' ? 'Atacante' : '' }}
+        
+        </td>
+        <td> 
+
+            {{ book.genre == '1' ? 'Goleiro' : '' }}
+            {{ book.genre == '2' ? 'Zagueiro' : '' }}
+            {{ book.genre == '3' ? 'Lateral' : '' }}
+            {{ book.genre == '4' ? 'Volante' : '' }}
+            {{ book.genre == '5' ? 'Meia' : '' }}
+            {{ book.genre == '6' ? 'Atacante' : '' }}
+
+        </td>
+        <td>{{ book.price == 1 ? 'Sim' : 'Não' }}</td>
+        <td>
+          <i class="bi bi-pencil-square" style="color: green;" 
+             (click)="editModal(book)"></i>
+        </td>
+        <td>
+          <i class="bi bi-trash" (click)="deleteBook(book)" style="color: red;"></i>
+        </td>
+      </tr>
+     </tbody>
+  </table>

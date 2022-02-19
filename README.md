@@ -1,3 +1,15 @@
+# Link
+https://edupala.com/angular-firebase-crud-operation-using-angularfire/
+
+## Componentes
+ng generate component components/home
+ng generate component components/player
+ng generate component components/list-player
+ng generate component components/search-player
+
+ng generate component modal/edit-player
+ng generate service services/player
+
 # FdqWeekly
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fdqapp": {
+      "hosting": {
+        "fdq-weekly": [
+          "confirma-lista"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fdqapp"
+  }
+}
