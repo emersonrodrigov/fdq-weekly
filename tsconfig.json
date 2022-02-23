@@ -2,7 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
+    },
     "outDir": "./dist/out-tsc",
     "rootDir": "./src" ,
     "forceConsistentCasingInFileNames": true,
@@ -27,6 +30,7 @@
       "es2020",
       "dom"
     ]
+    
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

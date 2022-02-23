@@ -14,8 +14,8 @@ import { ListPlayerComponent } from './components/list-player/list-player.compon
 import { SearchPlayerComponent } from './components/search-player/search-player.component';
 import { EditPlayerComponent } from './modal/edit-player/edit-player.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
- 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+
 
 @NgModule({
   declarations: [
@@ -24,17 +24,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PlayerComponent,
     ListPlayerComponent,
     SearchPlayerComponent,
-    EditPlayerComponent
+    EditPlayerComponent 
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    FormsModule , 
-    ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule ,  
+        ReactiveFormsModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore())
+    
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

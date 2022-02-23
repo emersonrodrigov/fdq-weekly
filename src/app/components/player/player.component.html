@@ -1,29 +1,38 @@
 <div>
-  <h4>Lista de Confirmação</h4>
+  <!-- <h4>Lista de Confirmação</h4> -->
+  <div *ngIf="saveData" class="alert alert-success" role="alert">
+   Nome incluído com sucesso, BOM JOGO RATO !
+  </div>
+
+
   <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
     <div class="form-group">
-       <label>Nome / Apelido</label>
+       <label>Nome / Apelido</label> 
        <input class="form-control" name="name" #name="ngModel" 
         [(ngModel)]="book.name" placeholder="Digite seu nome ou apelido" required>
+        <p class="fw-light text-danger">Obrigatório*</p>
     </div> 
-
+  
+ 
+    
     <div class="form-group">
       <label>Posição (opção 1)</label>
-      <select class="form-control" name="genre" #name=ngModel 
-        [(ngModel)]="book.genre">
-         <option value="1">Goleiro</option>
+      <select class="form-select" name="posicao1" #name=ngModel  placeholder="-- Posição -- "
+        [(ngModel)]="book.posicao1" required>
+         <option value="1">Goleiro</option> 
          <option value="2">Zagueiro</option>
          <option value="3">Lateral</option>
          <option value="4">Volante</option>
          <option value="5">Meia</option>
          <option value="6">Atacante</option>
       </select>
+      <p class="fw-light text-danger">Obrigatório*</p>
      </div>
 
      <div class="form-group">
       <label>Posição (opção 2)</label>
-      <select class="form-control" name="author" #name=ngModel 
-        [(ngModel)]="book.author">
+      <select class="form-select" name="posicao2" #name=ngModel 
+        [(ngModel)]="book.posicao2">
           <option value="1">Goleiro</option>
           <option value="2">Zagueiro</option>
           <option value="3">Lateral</option>
@@ -33,24 +42,20 @@
       </select>
      </div>
 
-     <div class="form-group">
+     <div class="form-group" >
       <label>Vai participar do churrasco ?</label>
-      <select class="form-control" name="price" #name=ngModel 
-        [(ngModel)]="book.price">
+      <select class="form-select"  name="churrasco" #name=ngModel  required
+        [(ngModel)]="book.churrasco">
          <option value="1">Sim</option>
          <option value="2">Não</option>
       </select>
+      <p class=".fs-7 text fw-light text-danger">Obrigatório*</p>
      </div>
  
-
-    
-
-      
-
-        <div class="form-group float-right">
-           <button type="submit" class="btn btn-success" 
+     <div class="d-grid gap-2">
+           <button type="submit" class="btn btn-success  btn-lg" 
              [disabled]="!bookForm.valid" [disabled]="bookForm.invalid">
-              <i class="bi bi-plus"></i>Add Book</button>
+              <i class="bi bi-plus"></i>Confirmar</button>
         </div>
     </form>
 </div>

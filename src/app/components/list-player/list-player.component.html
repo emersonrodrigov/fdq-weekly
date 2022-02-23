@@ -1,21 +1,51 @@
-<table class="table table-striped">
+
+<div id="htmlData">
+<h2>Confirmados</h2>
+<table class="table table-striped" >
     <thead>
      <tr>
        <th scope="col">#</th>
-       <th scope="col">Nome/Apelido</th>
-       <th scope="col">Posição (1ª Opção)</th>
-       <th scope="col">Posição (2ª Opção)</th>
-       <th scope="col">Churras ?</th>
+       <th scope="col">Nome</th>
+       <!-- <th scope="col">Posição (1ª Opção)</th>
+       <th scope="col">Posição (2ª Opção)</th> -->
+       <!-- <th scope="col">Churras ?</th>
+       <th scope="col">Status</th> -->
         
-       <th scope="col">Edit</th>
-       <th scope="col">Delete</th>
+       <!-- <th scope="col">Edit</th>
+       <th scope="col">Delete</th> -->
+       <th scope="col"></th>
      </tr>
     </thead>
     <tbody *ngIf="books">
       <tr *ngFor="let book of books; index as i">
         <th scope="row">{{ i+1 }}</th>
-        <td>{{ book.name }}</td>
-        <td>
+        <td><p class="font-weight-bold"> {{ book.name }}    
+          <img width="20" height="20"  src="https://firebasestorage.googleapis.com/v0/b/fdqapp.appspot.com/o/icons%2Fsoccer-ball.png?alt=media&token=13e7430b-2a5c-4c90-b3c2-1ec672a49182" alt="" >
+          <img *ngIf="book.churrasco == 1" width="20" height="20"  src="https://firebasestorage.googleapis.com/v0/b/fdqapp.appspot.com/o/icons%2Fbarbecue.png?alt=media&token=2cc9ecb2-8479-4bad-bbb3-90d3d89ef05a" alt="" >
+        </p>
+          <p>
+            Posição:  {{ book.posicao1 == '1' ? 'Goleiro' : '' }}
+            {{ book.posicao1 == '2' ? 'Zagueiro' : '' }}
+            {{ book.posicao1 == '3' ? 'Lateral' : '' }}
+            {{ book.posicao1 == '4' ? 'Volante' : '' }}
+            {{ book.posicao1 == '5' ? 'Meia' : '' }}
+            {{ book.posicao1 == '6' ? 'Atacante' : '' }} | 
+           
+            {{ book.posicao2 == '1' ? 'Goleiro' : '' }}
+            {{ book.posicao2 == '2' ? 'Zagueiro' : '' }}
+            {{ book.posicao2 == '3' ? 'Lateral' : '' }}
+            {{ book.posicao2 == '4' ? 'Volante' : '' }}
+            {{ book.posicao2 == '5' ? 'Meia' : '' }}
+            {{ book.posicao2 == '6' ? 'Atacante' : '' }}
+
+          </p>
+          <!-- <i class="bi bi-check-all" (click)="deleteBook(book)" style="color: green;"></i>
+          <p class="font-weight-light">Light weight text. 
+           Light weight text. 
+           Light weight text. </p> -->
+
+        </td>
+        <!-- <td>
                 {{ book.author == '1' ? 'Goleiro' : '' }}
                 {{ book.author == '2' ? 'Zagueiro' : '' }}
                 {{ book.author == '3' ? 'Lateral' : '' }}
@@ -33,15 +63,19 @@
             {{ book.genre == '5' ? 'Meia' : '' }}
             {{ book.genre == '6' ? 'Atacante' : '' }}
 
-        </td>
-        <td>{{ book.price == 1 ? 'Sim' : 'Não' }}</td>
-        <td>
-          <i class="bi bi-pencil-square" style="color: green;" 
-             (click)="editModal(book)"></i>
-        </td>
-        <td>
-          <i class="bi bi-trash" (click)="deleteBook(book)" style="color: red;"></i>
-        </td>
+        </td> -->
+        <!-- <td>{{ book.price == 1 ? 'Sim' : 'Não' }}</td> -->
+        <!-- <td>Aguardando confirmação </td> -->
+          <td>
+          <!-- <i class="bi bi-pencil-square" style="color: green;" 
+             (click)="editModal(book)"></i> -->
+         
+          <!-- <i class="bi bi-trash" (click)="deleteBook(book)" style="color: red;"></i> -->
+        </td>  
       </tr>
      </tbody>
   </table>
+</div>
+  <div class="col-md-4 text-right">
+    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+</div>

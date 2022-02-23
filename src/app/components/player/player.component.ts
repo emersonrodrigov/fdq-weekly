@@ -9,8 +9,9 @@ import { PlayerService } from 'src/app/services/player.service';
 })
 export class PlayerComponent implements OnInit {
 
-  book: IBook = { name: '', author: '', genre: '', price: 0 };
-
+  book: IBook = { name: '', posicao1: '', posicao2: '', churrasco: 0 };
+  saveData: boolean;
+  name: string;
   constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
@@ -19,5 +20,7 @@ export class PlayerComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.playerService.addBook(form.value).
       then(() => form.reset());
+      this.name = this.book.name;
+      this.saveData = true;
   }
 }
