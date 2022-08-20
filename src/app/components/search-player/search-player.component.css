@@ -1,0 +1,26 @@
+
+
+.left {
+    z-index: 0;
+    color: #fff;
+  }
+  
+  .left:before {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/fdqapp.appspot.com/o/icons%2Fcampinho-sem-borda.svg?alt=media&token=8bcbb428-d61a-49f6-ba6b-a3d528871b11");
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: -15px;
+    left: -15px;
+    bottom: -15px;
+  }
+
+ 
+
+    #hero {
+        background: url("https://firebasestorage.googleapis.com/v0/b/fdqapp.appspot.com/o/icons%2Fcampinho-sem-borda.svg?alt=media&token=8bcbb428-d61a-49f6-ba6b-a3d528871b11")  no-repeat center;
+        background-size: cover;
+    }

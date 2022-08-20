@@ -1,8 +1,13 @@
+
+<mat-card  >
 <div>
   <!-- <h4>Lista de Confirmação</h4> -->
-  <div *ngIf="saveData" class="alert alert-success" role="alert">
+  <div *ngIf="isShowFormConfirm && saveData" class="alert alert-success" role="alert">
    Nome incluído com sucesso, BOM JOGO RATO !
   </div>
+  <div *ngIf="!isShowFormConfirm && saveData" class="alert alert-success" role="alert">
+     Obrigado por avisar, MAS VOCÊ NÃO FAZ FALTA !
+   </div>
 
 
   <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
@@ -15,9 +20,9 @@
   
  
     
-    <div class="form-group">
+    <div class="form-group" *ngIf="isShowFormConfirm">
       <label>Posição (opção 1)</label>
-      <select class="form-select" name="posicao1" #name=ngModel  placeholder="-- Posição -- "
+      <select class="form-select" name="posicao1" #posicao1="ngModel"   placeholder="-- Posição -- "
         [(ngModel)]="book.posicao1" required>
          <option value="1">Goleiro</option> 
          <option value="2">Zagueiro</option>
@@ -29,9 +34,9 @@
       <p class="fw-light text-danger">Obrigatório*</p>
      </div>
 
-     <div class="form-group">
+     <div class="form-group" *ngIf="isShowFormConfirm">
       <label>Posição (opção 2)</label>
-      <select class="form-select" name="posicao2" #name=ngModel 
+      <select class="form-select" name="posicao2" #posicao2="ngModel" 
         [(ngModel)]="book.posicao2">
           <option value="1">Goleiro</option>
           <option value="2">Zagueiro</option>
@@ -42,16 +47,26 @@
       </select>
      </div>
 
-     <div class="form-group" >
+     <div class="form-group" *ngIf="isShowFormConfirm" >
       <label>Vai participar do churrasco ?</label>
-      <select class="form-select"  name="churrasco" #name=ngModel  required
+      <select required class="form-select"  name="churrasco" #churrasco="ngModel"   
         [(ngModel)]="book.churrasco">
+         <option value="1">Futebol e Resenha</option>
+         <option value="2">Só Resenha</option>
+         <option value="3">Só Futebol</option>
+      </select>
+      <p class=".fs-7 text fw-light text-danger">Obrigatório*</p>
+     </div>
+ 
+     <div class="form-group" *ngIf="isShowFormConfirm">
+      <label>Avulso:</label>
+      <select class="form-select"  name="avulso" #avulso=ngModel  required
+        [(ngModel)]="book.avulso">
          <option value="1">Sim</option>
          <option value="2">Não</option>
       </select>
       <p class=".fs-7 text fw-light text-danger">Obrigatório*</p>
      </div>
- 
      <div class="d-grid gap-2">
            <button type="submit" class="btn btn-success  btn-lg" 
              [disabled]="!bookForm.valid" [disabled]="bookForm.invalid">
@@ -59,3 +74,4 @@
         </div>
     </form>
 </div>
+</mat-card>

@@ -2,6 +2,16 @@
 https://edupala.com/angular-firebase-crud-operation-using-angularfire/
 
 
+   run: |
+        npm install
+        npm run build
+    
+    - name: Firebase Deploy
+      run: |
+        sudo npm install -g firebase-tools
+        firebase deploy --only hosting:admin --token ${{ secrets.FIREBASE_TOKEN }}
+
+
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 

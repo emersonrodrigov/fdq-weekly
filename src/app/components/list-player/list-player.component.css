@@ -1,0 +1,14 @@
+.customIconSize {
+    font-size: 50px;
+    height: 80px ;
+    width: 80px ;
+}
+
+.full-width-field {
+    display: block;
+  }
+
+
+.btn-ausente{
+    width: 100%;
+}
